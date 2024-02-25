@@ -10,5 +10,3 @@ def sum():
     result = num1 + num2
     return jsonify({'result': result})
 
-if __name__ == '__main__':
-    app.run(debug=True)
