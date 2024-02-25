@@ -18,9 +18,9 @@ jobs:
           python-version: 3.12 
       
       - name: Install libpq-dev
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y libpq-dev
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libpq-dev
 
       - name: Create virtual environment
         run: |
@@ -52,9 +52,9 @@ jobs:
           python-version: 3.12 
       
       - name: Install libpq-dev
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y libpq-dev
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libpq-dev
 
       - name: Create virtual environment
         run: |
@@ -86,9 +86,9 @@ jobs:
           python-version: 3.12
       
       - name: Install libpq-dev
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y libpq-dev
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libpq-dev
       
       - name: Create virtual environment
         run: |
