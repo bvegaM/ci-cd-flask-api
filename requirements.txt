@@ -1,6 +1,9 @@
 Flask
+Flask-SQLAlchemy
 requests
 pytest
 pytest-mock
 Faker
+psycopg2-binary
+psycopg2
 Gunicorn
