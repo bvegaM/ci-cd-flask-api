@@ -74,6 +74,7 @@ jobs:
         run: python -m unittest discover -s tests -p '*_test.py'
 
   deploy:
+    needs: test
     runs-on: ubuntu-latest
 
     steps:
