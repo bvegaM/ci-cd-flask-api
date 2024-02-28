@@ -1,9 +1,12 @@
 from flask import Flask, request, jsonify
+from flask_marshmallow import Marshmallow
 from flask_sqlalchemy import SQLAlchemy
+from marshmallow import fields
 
 
 
 app = Flask(__name__)
+ma = Marshmallow(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://flaskuser:Bs1JdlZ0ZvRgWwRsvOikSQrUBKa80LlU@dpg-cndqlbun7f5s73bmod7g-a.oregon-postgres.render.com/dbsum'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -19,6 +22,22 @@ class Sum(db.Model):
         return f'<Sum {self.id}: {self.num1} + {self.num2} = {self.result}>'
 
 
+# Crear el esquema SumSchema
+class SumSchema(ma.Schema):
+    id = fields.Integer()
+    num1 = fields.Integer()
+    num2 = fields.Integer()
+    result = fields.Integer()
+
+sums_schema = SumSchema(many=True)  
+
+
+
+@app.route('/sum', methods=['GET'])
+def find_all():
+    sums= db.session.execute(db.select(Sum)).scalars()
+    return sums_schema.jsonify(sums), 200
+
 @app.route('/sum', methods=['POST'])
 def sum():
     data = request.get_json()
@@ -33,8 +52,11 @@ def sum():
 
     return jsonify({'result': result})
 
-with app.app_context():
+
+if __name__ == '__main__':
+    with app.app_context():
         db.drop_all()
         db.create_all()
+    app.run(debug=True)
 
 
