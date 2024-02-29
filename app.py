@@ -6,7 +6,7 @@ from marshmallow import fields
 
 app = Flask(__name__)
 ma = Marshmallow(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://username:password@domain/example-sum-postgres'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://flaskuser:Bs1JdlZ0ZvRgWwRsvOikSQrUBKa80LlU@dpg-cndqlbun7f5s73bmod7g-a.oregon-postgres.render.com/dbsum'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
