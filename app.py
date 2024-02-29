@@ -1,16 +1,16 @@
 from flask import Flask, request, jsonify
-from flask_marshmallow import Marshmallow
 from flask_sqlalchemy import SQLAlchemy
+from flask_marshmallow import Marshmallow
 from marshmallow import fields
 
 
 
 app = Flask(__name__)
-ma = Marshmallow(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://flaskuser:Bs1JdlZ0ZvRgWwRsvOikSQrUBKa80LlU@dpg-cndqlbun7f5s73bmod7g-a.oregon-postgres.render.com/dbsum'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+ma = Marshmallow(app)
 
 class Sum(db.Model):
     id = db.Column(db.Integer, primary_key=True)
