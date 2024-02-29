@@ -21,6 +21,7 @@ class Sum(db.Model):
         return f'<Sum {self.id}: {self.num1} + {self.num2} = {self.result}>'
 
 # Crear el esquema SumSchema
+    
 class SumSchema(ma.Schema):
     id = fields.Integer()
     num1 = fields.Integer()
